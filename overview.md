@@ -77,3 +77,44 @@ src(editor) -------> compilation -----> loads/mounts -----> vDOM ---> render ---
 |                                                       |   |              +---update ----->vDOM
 |                                                       |   |                       |
 +-------------------------------------------------------+   +-----------------------+
+
+
+
+                            (pass from parent context)
+                            |   (default) 
+                            v    v
++--------------Snakehead({dir="up"})------------+       +-----------------------------------+           
+|                                               |       |                                   |   
+|                                               |       |                                   |
+|      ...                                      |       |                                   |    
+|        const [_dir,setDir] = <----useState("up")------------------> _dir                    |
+|      ...                                      |       |                                   |
+|      ...                                      |       |                                   |   |      ...{_dir}
+|                                               |       |                                   |    
+|                                               |        +---------------------------------+   
++-----------------------------------------------+   
+         
+
+OUTSIDE/ PARENT CONTEXT
+
+                    headData={dir:"up,top:100, left:100}
+
+                    <SnakeHead {...headData} />  ne permite sa scapam de un strat headData si   doar destructurizam props in structura {dir,top.left}
+                    <SnakeHead headData={headData} /> ---> obtinem un start in plus care trebuie desctructurizat {headData:{dir,top,left}}
+
+                        |
+                        |
+                        props
+                          |
+                          +----headData
+                                    |
+                                    +- dir
+                                    +- top
+                                    +- left
+
+    Avem 2 parti componente
+        UI                  DATA
+    componente(snakehead)  (obiectul headDAta)
++--------------+      +----------------+
+|              | <--->|                |
++--------------+      +----------------+

@@ -12,19 +12,20 @@ body{
         background-image: url(snake_sprite.jpg);
         width: 50px;
         height: 50px;
+        position: absolute;
         
         
         &.dir-up{
             background-position: -150px 0;
         }
-        &.dir-down{
-            background-position: -201px -50px;
+        &.dir-right{
+            background-position: -200px 0px;
         }
         &.dir-left{
             background-position: -150px -50px;
         }
-        &.dir-right{
-            background-position: -200px 0px;
+        &.dir-down{
+            background-position: -201px -50px;
         }
     }
 }

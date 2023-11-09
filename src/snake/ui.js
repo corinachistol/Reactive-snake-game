@@ -2,29 +2,42 @@ import { useState } from 'react'
 
 import './snake.scss'
 
-//HW2:using props.dir (with destrc & defautl value = 'up)
-//      make it so the sneak head renders in either of the next 2 situations
-//      <SnakeHead />
-//      <SnakeHead dir ="right"/>
-
-
-
-const SnakeHead = ({ dir = "up" }) => {
+const SnakeHead = ({dir = "up", top=0, left=0, dead}) => {
     // let dir = 'up'
 
-    // let [dir,setDir] = useState('up')
+    const [_dir,setDir] = useState(dir)
+    const [_top,setTop] = useState(top)
+    const [_left,setLeft] = useState(left)
 
-    // setTimeout( () => {
-    //     console.log("changed direction")
-    //     setDir('right')
-    // }, 5000)
-
-
+    
     return (
-        <div className={`snake__head dir-${dir}`}>
-            SnakeHead
+        <div 
+            className={`snake__head dir-${dir}`}
+            style={{ top:`${_top}px`, left:`${_left}px` }}
+            >
+       
         </div>
     )
 }
 
 export {SnakeHead}
+
+
+
+
+//HW2:using props.dir (with destrc & defautl value = 'up)
+//      make it so the sneak head renders in either of the next 2 situations
+//      <SnakeHead />
+//      <SnakeHead dir ="right"/>
+
+//o varianta de rezolvare a taskului
+// const SnakeHead = (props) => {
+
+//     let [dir,setDir] = useState(props.dir ?? "up")
+
+//     return (
+//         <div className={`snake__head dir-${dir}`}>
+//             SnakeHead
+//         </div>
+//     )
+// }
