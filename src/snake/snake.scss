@@ -28,4 +28,24 @@ body{
             background-position: -201px -50px;
         }
     }
+
+    &tail{
+        background-image: url(snake_sprite.jpg);
+        width: 50px;
+        height: 50px;
+        position: absolute;
+
+        &.dir-down{
+            background-position: -150px -100px;
+        }
+        &.dir-right{
+            background-position: -150px -150px;
+        }
+        &.dir-up{
+            background-position: -200px -150px;
+        }
+        &.dir-left{
+            background-position: -200px -100px;
+        }
+    }
 }

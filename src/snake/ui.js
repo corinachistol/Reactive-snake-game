@@ -20,7 +20,25 @@ const SnakeHead = ({dir = "up", top=0, left=0, dead}) => {
     )
 }
 
-export {SnakeHead}
+
+const SnakeTail = ({dir= "down", bottom=0, left=0 }) => {
+
+    const [_dir,setDir] = useState(dir)
+    const [_bottom,setTop] = useState(bottom)
+    const [_left,setRight] = useState(left)
+
+    return (
+        <div 
+            className={`snake__tail dir-${dir}`}
+            style={{bottom:`${_bottom}px`, left:`${_left}`}}
+            >
+            
+        </div>
+
+    )
+}
+
+export {SnakeHead,SnakeTail}
 
 
 
