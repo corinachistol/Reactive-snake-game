@@ -5,33 +5,18 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { SnakeHead, SnakeTail } from './snake/ui';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-//GROU[PING DATA
-let headData = {
-  dir:"up",
-  top: 150,
-  left:100,
-  dead:true
-}
+//GROUPING DATA
 
-let tailData = {
-  dir:"down",
-  bottom: 100,
-  left:100,
-  dead:true
-}
- 
 root.render(
   <React.StrictMode>
 
     {/* PARENTCONTEXT */}
     
-    <SnakeHead {...headData} /> 
-    {/* <SnakeHead dir="up" top={100} left={100} /> not good approach */}
-    {/* <SnakeHead data={head} /> */}
-    <SnakeTail {...tailData}/>
-    {/* <SnakeTail /> */}
+    <SnakeHead top={100} left={200} name='head' />
+    <SnakeTail top={200} left={200} name='tail' />
     
   
     {/* PARENTCONTEXT */}

@@ -118,3 +118,70 @@ OUTSIDE/ PARENT CONTEXT
 +--------------+      +----------------+
 |              | <--->|                |
 +--------------+      +----------------+
+
+
+
+# DRY (Don't Repeat Yourself)
+    - OOP: inheritance,composition
+    - functional: composition
+
+
+            Components
+                |
+                +-----backround
+                |
+                +-----coords
+                |
+                |
+                v (wrapper,decorator)
+                + <--------withDirection (OPTIONAL)
+                |
+            ------------
+             /      \
+            /        \
+        SnakeHead   SnakeTail
+
+
+
+
+                                (name)
+                   < Component ..../>
+                        |
+                        |
+                        v
+        withcoordinates(Component)
+                        |
+                        |   +------(top,left,name)
+                        |   |
+                        v   v
+                     <div...>
+                        <Component .../>
+                    </div>
+
+
+
+
+
+
+Component 
+        \
+        +---class
+        +----background
+
+
+
+
+
+SnakeHead
+
+    + coordiante (common)
+
+    + background (common)
+
+    + direction  (specific)
+
+
+
+
+daca o functie returneaza () JSX -> React intelege ca este o componenta functionala
+daca o functie returneaza altceva decit JSX -> React intelege ca este o functie ordinara
