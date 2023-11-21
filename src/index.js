@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 // dev & test & perf
 import reportWebVitals from './reportWebVitals';
-import { SnakeHead, SnakeTail } from './snake/ui';
+import { Snake} from './snake/ui';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,8 +15,7 @@ root.render(
 
     {/* PARENTCONTEXT */}
     
-    <SnakeHead top={100} left={200} name='head' />
-    <SnakeTail top={200} left={200} name='tail' />
+    <Snake />
     
   
     {/* PARENTCONTEXT */}

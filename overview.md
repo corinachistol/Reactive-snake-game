@@ -149,14 +149,14 @@ OUTSIDE/ PARENT CONTEXT
                         |
                         |
                         v
+        withDirection(Component)
+                        |
         withcoordinates(Component)
                         |
-                        |   +------(top,left,name)
-                        |   |
-                        v   v
-                     <div...>
-                        <Component .../>
-                    </div>
+                        |  
+                        |   
+                        v   
+                     <ReadyToUseComponent />
 
 
 
@@ -185,3 +185,11 @@ SnakeHead
 
 daca o functie returneaza () JSX -> React intelege ca este o componenta functionala
 daca o functie returneaza altceva decit JSX -> React intelege ca este o functie ordinara
+
+<Snake/>
+    |
+    +---------<Component/>
+                    |
+                    +--------<SnakeHead />
+                    |
+                    +--------<SnakeTail />
