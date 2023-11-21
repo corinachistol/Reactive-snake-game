@@ -1,4 +1,4 @@
-import { Children } from "react"
+import './style.scss'
 
 //common components
 const Component = ({name, children}) => {
@@ -46,7 +46,6 @@ const withDirection = (Component ) => {
 const SnakeHead = withCoordinate(
     withDirection(
         Component
-
     )
 )
 
@@ -61,7 +60,7 @@ const Snake = () => {
     return (
         <Component name ="snake">
             <SnakeHead top={100} left={200} name='head' dir="up" />
-            <SnakeTail top={200} left={200} name='tail' dir="up"/>
+            <SnakeTail top={150} left={200} name='tail' dir="down"/>
         </Component>
     )
 }

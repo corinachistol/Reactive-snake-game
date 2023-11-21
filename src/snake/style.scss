@@ -1,0 +1,46 @@
+@use "sass:map";
+@import '../utils.scss';
+
+$dirHead:(
+    "up":(-150px, 0px),
+    "down":(-200px,-50px),
+    "left":(-150px,-50px),
+    "right":(-200px,0px),
+);
+
+$dirTail:(
+    "up": (-200px -150px),
+    "down": (-150px -100px),
+    "left": (-200px -100px),
+    "right": (-150px -150px),
+);
+
+//HW666*: using a sass map + @each try to generate this automatically
+        //hint: {'up':[...], 'right':[...]}
+    
+.snake{
+
+    @each $name,$position in $dirHead{
+        .dir-#{$name}{
+            .head{
+                @include box;
+                background-image: url(./snake_sprite.jpg);
+                background-position-x: nth(map-get($dirHead, $name), 1);
+                background-position-y: nth(map-get($dirHead, $name), 2);
+            }                 
+        }
+      
+    }
+
+
+    @each $name,$position in $dirTail{
+        .dir-#{$name}{
+            .tail{
+                @include box;
+                background-image: url(./snake_sprite.jpg);
+                background-position-x: nth(map-get($dirTail, $name), 1);
+                background-position-y: nth(map-get($dirTail, $name), 2);
+            }               
+        }
+    }
+}

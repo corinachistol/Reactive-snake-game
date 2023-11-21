@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 // dev & test & perf
 import reportWebVitals from './reportWebVitals';
+import './game.scss'
 import { Snake} from './snake/ui';
 
 
