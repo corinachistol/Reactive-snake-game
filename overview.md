@@ -186,7 +186,23 @@ SnakeHead
 daca o functie returneaza () JSX -> React intelege ca este o componenta functionala
 daca o functie returneaza altceva decit JSX -> React intelege ca este o functie ordinara
 
-<Snake/>
+-------------------DATA--------------------
+
+
+const snake = {
+  dummy: "something",
+  children: [
+      { name: "head", dir: "up", coord : { top:100, left:200} }
+      { name: "tail", dir: "down", coord : { top:150, left:200} }
+  ]
+}
+            |
+            |
+            |
+            v
+----------------------UI--------------
+
+<Snake props />
     |
     +---------<Component/>
                     |

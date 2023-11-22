@@ -15,7 +15,7 @@ const Component = ({name, children}) => {
 // decorator 
 const withCoordinate = (Component) => {
 
-    return ({top,left, ...props}) => {
+    return ({coord:{top,left}, ...props}) => {
 
         return (
         <div style={{top:`${top}px`, left:`${left}px`,position:'absolute'}}>
@@ -49,6 +49,12 @@ const SnakeHead = withCoordinate(
     )
 )
 
+const SnakeBody = withCoordinate(
+    withDirection(
+        Component
+    )
+)
+
 const SnakeTail = withCoordinate(
     withDirection(
         Component
@@ -56,11 +62,20 @@ const SnakeTail = withCoordinate(
 )
 
 
-const Snake = () => {
+const Snake = ({data: {children}}) => {
     return (
         <Component name ="snake">
-            <SnakeHead top={100} left={200} name='head' dir="up" />
-            <SnakeTail top={150} left={200} name='tail' dir="down"/>
+            {/* <SnakeHead top={100} left={200} name='head' dir="up" />
+            <SnakeTail top={150} left={200} name='tail' dir="down"/> */}
+            {
+                children.map((childData,idx) => {
+                     return (childData.name === "head" && <SnakeHead key={`k-${idx}`} {...childData}/>) ||
+                            (childData.name === "body" && <SnakeBody key={`k-${idx}`} {...childData}/>) ||
+                            (childData.name === "tail" && <SnakeTail key={`k-${idx}`} {...childData}/>) 
+                            
+                })
+            }
+
         </Component>
     )
 }
@@ -72,4 +87,6 @@ const Snake = () => {
 
 export {Snake}
 
+
+//HW1: make sure you add the BODY Component
 
