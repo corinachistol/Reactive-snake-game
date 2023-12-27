@@ -1,0 +1,19 @@
+@import '../utils.scss';
+
+// .apple{
+//     @include component(
+//         "apple",
+//         (50px 50px),
+//         "./snake/snake_sprite.jpg",
+//         (
+//             "dir": (50px 20px),
+//         )
+//     )
+// }
+
+.apple{
+    width: 50px;
+    height: 50px;
+    background-image: url(../snake/snake_sprite.jpg);
+    background-position: 0px -150px;
+}

@@ -11,7 +11,7 @@ import { Game} from './game/ui';
 
 const game = {
 
-  scroe:0,
+  score:0,
   state: "started",
 
   children: [
@@ -26,7 +26,7 @@ const game = {
 
     {
       name: "apple",
-      coord: {top:100, left:200}
+      coord: {top:50, left:50}
     },
   ]
 
