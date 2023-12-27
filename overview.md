@@ -202,10 +202,58 @@ const snake = {
             v
 ----------------------UI--------------
 
+
+
+## PART6
+
+
+## setTimeout
+>In unele situatii cind macheta este independenta, gen un countdown care nu influenteaza nimic din macheta, atunci toata rezolutia poate fi facuta in interior, timer,stateManagement, data,etc.
+
+    initData
+        |
+        v
 <Snake props />
     |
+setTimeout() > setState()
+    |               |
+    |         data<---
+    |           |
+    |           v
     +---------<Component/>
                     |
                     +--------<SnakeHead />
                     |
                     +--------<SnakeTail />
+
+
+
+>Daca componenta trebuie sa interactioneze, setam timer-ul care va influenta datele la un nivel mai sus  si pe urma la transmitem prin prosp in jos.
+Cu cit mai sus ridici state management, cu atit structura de date va fi mai complexa si mai greu de menajat, cere mai multa atentie, mai multa responsabilitate si e mai strong coupled.
+
+            initData
+                 |
+                 v
+        <Game props />
+                 |
+            setTimeout() 
+            useState()
+                 |
+                 v
+            chidlren
+                |
+                +----  <Snake       props /> 
+                |           |          |  
+                |           |          |
+                |           |          v
+                |           +------<Component/>
+                |                           |
+                |                           +--------<SnakeHead />
+                |                           |
+                |                           +--------<SnakeTail />
+                +-----<Apple propsp/>
+
+
+Add Apple component ---> render it
+                        try to refactor in order to reuse the code
+                        separate the common logic
