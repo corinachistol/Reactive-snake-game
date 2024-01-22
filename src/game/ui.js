@@ -1,13 +1,29 @@
 import { Snake } from "../snake/ui";
-import { Apple, AppleComponent } from "../apple/ui";
+import { Apple } from "../apple/ui";
+import{useState,useEffect} from 'react';
 
 //game component
-export const Game = ({ data: {children} }) => {
-    console.log(children)
+export const Game = ({ data, data: {children} }) => {
+   
+    let [gameData,setGameData] = useState(data)
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            //1. clone the previous gameData
+            let newGameData = structuredClone(gameData)
+            //2. make changes in the copy
+            newGameData.children[0].children[0].coord.top -=1
+            //3. set the copy as the new state
+            setGameData(newGameData)
+        },50)
+    })
+
+
+
     return (
         <div className="game">
            {
-            children.map((childData,idx)=>{
+            gameData.children.map((childData,idx)=>{
                 console.log(childData)
                 switch(childData.name){
                     case "snake":
@@ -17,9 +33,9 @@ export const Game = ({ data: {children} }) => {
                             />     
                     
                     case "apple": 
-                        return <AppleComponent
+                        return <Apple
                                 key={`k-${idx}`}
-                                data={childData}
+                                {...childData}
                                 />
                     
 

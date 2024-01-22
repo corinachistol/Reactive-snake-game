@@ -19,7 +19,7 @@ const game = {
       name: "snake",
       children: [
           { name: "head", dir: "up", coord : { top:100, left:200} },
-          { name: "body", dir: "upDown", coord : { top:150, left:200} },
+          { name: "body", dir: "up", coord : { top:150, left:200} },
           { name: "tail", dir: "down", coord : { top:200, left:200} },
       ]
     },
@@ -29,7 +29,7 @@ const game = {
       coord: {top:50, left:50}
     },
   ]
-
+  
 }
 
 

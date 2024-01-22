@@ -1,18 +1,6 @@
-import { Component, withCoordinate } from "../common/common";
+import { Component, withCoordinate } from "../game/common";
 import './style.scss'
 
-const Apple = withCoordinate(Component)
+export const Apple = withCoordinate(Component)
 
-
-export const AppleComponent = ({data}) => {
-   console.log(data)
-    return (
-        <Component name="apple">
-            <Apple coord={data.coord} />
-        </Component>
-            
-    
-    )
-
-}
 

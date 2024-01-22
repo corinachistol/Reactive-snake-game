@@ -1,5 +1,5 @@
+import { Component,withCoordinate,withDirection } from '../game/common'
 import './style.scss'
-import { Component,withCoordinate,withDirection } from '../common/common'
 
 //SNAKE PARTS
 
