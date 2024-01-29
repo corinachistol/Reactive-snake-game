@@ -14,13 +14,13 @@ const game = {
   score:0,
   state: "started",
 
-  children: [
+  children: [  // <-- .find() , /findIndex()
     {
       name: "snake",
-      children: [
+      children: [      // <-----.map()
           { name: "head", dir: "up", coord : { top:100, left:200} },
           { name: "body", dir: "up", coord : { top:150, left:200} },
-          { name: "tail", dir: "down", coord : { top:200, left:200} },
+          { name: "tail", dir: "up", coord : { top:200, left:200} },
       ]
     },
 

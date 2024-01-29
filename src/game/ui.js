@@ -1,21 +1,75 @@
 import { Snake } from "../snake/ui";
 import { Apple } from "../apple/ui";
-import{useState,useEffect} from 'react';
+
+import{useState,useEffect,useReducer} from 'react';
+
+const reduceGameState = (state, action) => {
+    // console.log(state) // state pastreaza toata structura de date "game"
+
+    // console.log(action)
+    //1.find the snake & snake index
+    let snakeIdx = state.children
+        .findIndex( item => item.name == 'snake')
+    // console.log(snakeIdx)
+
+    //1.b. updte the snake head direction
+    if(action.direction) {
+        state.children[snakeIdx].children[0].dir = action.direction
+    }
+
+    //2. compute the values
+    state.children[snakeIdx].children = state.children
+        .find( item => {
+            // console.log(item)
+            return item.name == 'snake'})
+        .children
+        .reverse()
+        .map( (item, idx, arr) => {
+            console.log(item)
+            console.log(arr[idx+1])
+            if(item.dir) {
+                // debugger
+                 if (item.name !== 'head'){
+                    item.dir = arr[idx+1].dir
+                    item.coord = arr[idx+1].coord
+                } else{
+                    if (item.dir == 'up'){
+                        item.coord.top--
+                    }else if (item.dir == 'down'){
+                        item.coord.top++
+                    }else if (item.dir == 'right'){
+                        item.coord.left++
+                    }else if (item.dir == 'left'){
+                        item.coord.left--
+                    }
+                
+                }
+            }
+            return item
+        }).reverse()
+    
+    //3. clone the previous gameDAta
+    let newState = structuredClone(state)
+
+    //4. set the copy as the new state
+    return newState
+
+}
 
 //game component
 export const Game = ({ data, data: {children} }) => {
    
-    let [gameData,setGameData] = useState(data)
+    // let [gameData,setGameData] = useState(data)
+
+    let [state,dispatch] = useReducer(reduceGameState, data )
+
 
     useEffect(()=>{
         setTimeout(()=>{
-            //1. clone the previous gameData
-            let newGameData = structuredClone(gameData)
-            //2. make changes in the copy
-            newGameData.children[0].children[0].coord.top -=1
-            //3. set the copy as the new state
-            setGameData(newGameData)
-        },50)
+          dispatch({ direction: 
+            Math.random < 0.1 ? ["up", "right", "down", "left"][parseInt(Math.random()*3.9)] 
+            : null })
+        },1000)
     })
 
 
@@ -23,20 +77,20 @@ export const Game = ({ data, data: {children} }) => {
     return (
         <div className="game">
            {
-            gameData.children.map((childData,idx)=>{
-                console.log(childData)
+            state.children.map((childData,idx)=>{
+                // console.log(childData)
                 switch(childData.name){
                     case "snake":
                         return <Snake
                                 key={`k-${idx}`}
                                 data={childData}
-                            />     
+                    />     
                     
                     case "apple": 
                         return <Apple
                                 key={`k-${idx}`}
                                 {...childData}
-                                />
+                    />
                     
 
                 }

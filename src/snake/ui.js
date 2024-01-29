@@ -33,12 +33,12 @@ const SnakeTail = withCoordinate(
 
  const Snake = ({data: {children}}) => {
 
-    console.log(children)
+    // console.log(children)
     return (
         <Component name ="snake">
             {
                 children.map((childData,idx) => {
-                    console.log(childData)
+                    // console.log(childData)
                      return (childData.name === "head" && <SnakeHead key={`k-${idx}`} {...childData}/>) ||
                             (childData.name === "body" && <SnakeBody key={`k-${idx}`} {...childData}/>) ||
                             (childData.name === "tail" && <SnakeTail key={`k-${idx}`} {...childData}/>) 

@@ -2,7 +2,7 @@
     > JS: loops, conditional ,functional, OOP , timers
     > DOM: structure,manipualtion, events
     > Algorithms
-    > dat astructure: Tree, Hierarchy, Array, Object, JSON
+    > data structure: Tree, Hierarchy, Array, Object, JSON
     > storage /AJAX/ fetch
     > node,webpack
     > jsx
@@ -100,7 +100,7 @@ OUTSIDE/ PARENT CONTEXT
                     headData={dir:"up,top:100, left:100}
 
                     <SnakeHead {...headData} />  ne permite sa scapam de un strat headData si   doar destructurizam props in structura {dir,top.left}
-                    <SnakeHead headData={headData} /> ---> obtinem un start in plus care trebuie desctructurizat {headData:{dir,top,left}}
+                    <SnakeHead headData={headData} /> ---> obtinem un strat in plus care trebuie desctructurizat {headData:{dir,top,left}}
 
                         |
                         |
@@ -251,9 +251,69 @@ Cu cit mai sus ridici state management, cu atit structura de date va fi mai comp
                 |                           +--------<SnakeHead />
                 |                           |
                 |                           +--------<SnakeTail />
-                +-----<Apple propsp/>
+                +-----<Apple props/>
 
 
 Add Apple component ---> render it
                         try to refactor in order to reuse the code
                         separate the common logic
+
+
+
+
+
+## PART9
+
+STATE UPDATES
+
+
+            state                                                   newState
+                |                                                       |
+                |                                                       |
+                |                                                       |                                                            |
+                +-----------------------------------                    |
+                                                   |                    |
+            +-----------------------------------------------+           |
+dispatch({...})                                    |        |           |
+           |                                       |        |           |
+           |                                       v        v           |
+           +---------? ... ------> reduceGameState(state, action) {     |
+                ...                                                     |
+                reducing logic                                          |
+                ...                                                     |
+                return newState ----------------------------------------+
+           }
+                     
+
+STATE
+X --------> ... ------> reducer() ------> .... --------> newState
+                                            |
+                                            ^
+                        segmentul de la starea curenta de apel pinala reducer si pina la newState nu ne apartine noua, Reactul sub capota. Avantajul decoupling
+
+
+
+
+
+
+Reducer is a function that has access to previous state and can change the current or final state.
+
+useReducer = se potriveste mai bine cu structuri de date complexe.
+useState cu valori primitive
+
+
+COORD ENGINE    
+
+x -------------------> backwards
+ 3       2    1     0
+ 0       1    2     3 dupa reverse
+ +-----+ +----+ +---+ 
+ v     | v    | v   |
+[T]    [B]    [B]   [H]  >
+
+Tail va copia starea si coord din body, 
+Body din Body
+Body din Head
+Head va dicta directia si coord
+
+
