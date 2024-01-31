@@ -317,3 +317,38 @@ Body din Head
 Head va dicta directia si coord
 
 
+
+
+
+
+B (/) > right
+
+   ^ 
+   |
+   up
+
+
+  down
+   |
+   v
+
+B (\) > right
+
+
+
+        [H][B]
+           [B]
+           [B]
+           [T]
+
+    [H][B][B]
+          [B]
+          [T]
+
+   
+   
+   
+
+
+
+

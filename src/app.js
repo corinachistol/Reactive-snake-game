@@ -18,9 +18,11 @@ const game = {
     {
       name: "snake",
       children: [      // <-----.map()
-          { name: "head", dir: "up", coord : { top:100, left:200} },
-          { name: "body", dir: "up", coord : { top:150, left:200} },
-          { name: "tail", dir: "up", coord : { top:200, left:200} },
+          { name: "head", dir: "left", coord : { top:120, left:180} },
+          { name: "body", dir: "up-left", coord : { top:120, left:200} },
+          { name: "body", dir: "up", coord : { top:140, left:200} },
+          { name: "body", dir: "up", coord : { top:160, left:200} },
+          { name: "tail", dir: "up", coord : { top:180, left:200} },
       ]
     },
 
