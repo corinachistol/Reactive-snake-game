@@ -19,6 +19,7 @@ const game = {
       name: "snake",
       children: [      // <-----.map()
           { name: "head", dir: "left", coord : { top:120, left:180} },
+          // HW1: add new segment here
           { name: "body", dir: "up-left", coord : { top:120, left:200} },
           { name: "body", dir: "up", coord : { top:140, left:200} },
           { name: "body", dir: "up", coord : { top:160, left:200} },
@@ -28,7 +29,8 @@ const game = {
 
     {
       name: "apple",
-      coord: {top:50, left:50}
+      // quantity: Math.floor(Math.random() * 10),
+      coord: {top:240, left:240}
     },
   ]
   
